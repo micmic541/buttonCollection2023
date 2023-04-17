@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div class="wrapper">
+            <a href="#" target="_blank">
+				<span>Click Me!</span>
+			</a>
+        </div>
+		<style>
+		a {
+			position: relative;
+			background-color: transparent;
+			color: black;
+			font-size: 16px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 10px;
+			cursor: pointer;
+			transition: 0.5s ease-in-out;
+			padding: 10px 20px 9px;
+		}
+		a span {
+			text-align: center;
+		}
+		a::before{
+			content: '';
+			position: absolute;
+			transition: all 0.3s;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 1px solid black;
+			pointer-events: none;
+		}
+		a::after {
+			content: '';
+			position: absolute;
+			transition: all 0.3s;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			background: black;
+			transform: scale(1, 0.1);
+			z-index: -1;
+			pointer-events: none;
+		}
+		a:hover {
+			color: #fff !important;
+		}
+		a:hover:before {
+			transform: scale(1, .1);
+			opacity: 0;
+		}
+		a:hover:after {
+			opacity: 1;
+			transform: scale(1, 1);
+			border: 1px solid black;
+		}
+		a[target="_blank"] span {
+			position: relative;
+			padding-right: 20px !important;
+		}
+		a[target="_blank"] span:before,
+		a[target="_blank"] span:after {
+			border: 1px solid black;
+			transition: .5s eas-in-out;
+		}
+		a[target="_blank"] span:before {
+			content: "";
+			display: block;
+			width: 6px;
+			height: 4px;
+			position: absolute;
+			right: 6px;
+			top: calc(50% - 1px);
+		}
+		a[target="_blank"] span:after {
+			content: "";
+			display: block;
+			width: 6px;
+			height: 4px;
+			position: absolute;
+			right: 8px;
+			top: calc(50% - 3px);
+		}
+		a:hover[target="_blank"] span:before,
+		a:hover[target="_blank"] span:after {
+			border: 1px solid #fff;
+		}
+
+		</style>
+    </body>
+</html>
